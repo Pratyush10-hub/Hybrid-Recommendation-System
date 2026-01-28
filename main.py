@@ -16,8 +16,6 @@ data = pd.read_parquet('appliances_with_sentiment.parquet').dropna(subset=['over
 
 # Normalize rating to [0,1]
 data['RatingNorm'] = data['overall'] / 5.0
-# Map sentiment from [-1,1] to [0,1]
-data['SentimentNorm'] = (data['SentimentScore'] + 1.0) / 2.0
 
 # Split train/val (strict separation)
 train_df, val_df = train_test_split(data, test_size=0.2, random_state=42)
